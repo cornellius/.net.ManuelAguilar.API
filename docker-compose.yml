@@ -11,8 +11,8 @@ services:
       - "8080:80"
       - "5252:5252"
     environment:
-      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Server=postgres;Port=5432;Database=ManuelAguilar;IntegratedSecurity=true;Pooling=true;
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Server=postgres;Port=5432;Database=ManuelAguilar;Pooling=true;
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
     networks:
       - dev
