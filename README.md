@@ -17,6 +17,9 @@ The aim of this exercise is to implement a couple of fake blogging end-points, u
     * [POST] /post
     * [GET] /post/[id]
         * use request header `WithAuthors` with some value to retrieve author related information
+* To setup the database and seed with initial data (3 authors), please execute the following commands:
+    * dotnet ef migrations add InitialMigration
+    * dotnet ef database update
 
 ## Implementation & general notes
 
