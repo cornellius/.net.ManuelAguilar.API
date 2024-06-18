@@ -13,6 +13,7 @@ The aim of this exercise is to implement a couple of fake blogging end-points, u
 * The API should be responding at port :8080
 * PostgreSQL is contanerized and responding on port 5433
 * A small subset of end-points and CRUD operations are available:
+    * [GET] /health 
     * [GET] /authors
     * [POST] /post
     * [GET] /post/[id]
@@ -20,11 +21,15 @@ The aim of this exercise is to implement a couple of fake blogging end-points, u
 * To setup the database and seed with initial data (3 authors), please execute the following commands:
     * `dotnet ef migrations add InitialMigration`
     * `dotnet ef database update`
+* To spin up Docker containers:
+    * `cd ManuelAguilar.API`
+    * `docker build --file ManuelAguilar.API/Dockerfile --rm --no-cache -t manuelaguilar:latest .`
+    * `docker-compose up`
 
 ## Known/potential issues
 
 * [bug] Using a non-existent over on [GET] /post/[id] triggers an exception that is not properly captured and provokes a 500 server error. I am investigating why the exception is not managed as a NotFoundException.
-* [testing] After upgrading to .NET 8 I switched from Docker to local testing to speed up things. I am testing now that everything works fine with Docker, again.
+* ~~[fixed] After upgrading to .NET 8 I switched from Docker to local testing to speed up things. I am testing now that everything works fine with Docker, again.~~
 
 ## Implementation & general notes
 
