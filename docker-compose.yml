@@ -1,0 +1,40 @@
+services:
+  manuelaguilar:
+    image: ${DOCKER_REGISTRY-}manuelaguilar:latest
+    build:
+      context: .
+      dockerfile: ManuelAguilar/Dockerfile
+    depends_on:
+      - postgres
+    container_name: manuelaguilar
+    ports:
+      - "8080:80"
+      - "5252:5252"
+    environment:
+      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Server=postgres;Port=5432;Database=ManuelAguilar;IntegratedSecurity=true;Pooling=true;
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - dev
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ManuelAguilar
+    ports:
+      - "5433:5432"
+    restart: always
+    volumes:
+      - app_data:/var/lib/postgresql/data
+    networks:
+      - dev
+
+networks:
+  dev:
+    driver: bridge
+
+volumes:
+  app_data:
