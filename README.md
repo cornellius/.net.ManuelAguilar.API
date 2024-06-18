@@ -28,10 +28,12 @@ The aim of this exercise is to implement a couple of fake blogging end-points, u
 
 ## Known/potential issues
 
-* [bug] Using a non-existent over on [GET] /post/[id] triggers an exception that is not properly captured and provokes a 500 server error. I am investigating why the exception is not managed as a NotFoundException.
+* [bug, pending] Using a non-existent post ID on [GET] /post/[id] triggers an exception that is not properly captured and provokes a 500 server error. I am investigating why the exception is not managed as a NotFoundException, and fix it.
 * ~~[fixed] After upgrading to .NET 8 I switched from Docker to local testing to speed up things. I am testing now that everything works fine with Docker, again.~~
+* [pending] add unit tests to cover controllers, handlers and data operations.
 
 ## Implementation & general notes
 
-* Proper unit tests (with xUnit, Moq, FluentAssertions) are NOT YET implemented, because of pure time constrains. I will add sufficient unit tests in subsequent commits. I am totally conscious that unit testing and high code coverage are a MUST in software development, I just ran out of time for this first commit :-/ But I will add them later for sure!
-* In general it's been a challenge (or complication) to learn to code in .NET because of the myriad of different .NET and library versions (which have different ways to set them up and use them), plus many different ways to do things (some of them obsolete, some others very recent) that appear in articles, training videos, etc. I have really enjoyed coding in C#, thought.
+* Proper unit tests (with xUnit, Moq, FluentAssertions) **are NOT YET implemented**, because of me still learning how to set them up in .NET, and pure time constrains. My aim is to add sufficient unit tests in subsequent commits, if time permits. Nonwithstanding, I am **totally conscious that unit testing and high code coverage are a MUST in software development**, and as such I would expect to have them for any software change that could go to production. This is both from the perspective of a manager or a developer.
+* In general it's been a challenge (a nice one for the most part!) to learn how to code in .NET and determine which is the most up to date documentation and followed standards/best practices, because of the myriad of different .NET versions out there, plus all the tutorials recommending very varied implementations, some of them considered obsolete by now. Constant triage of information has been a constant. There are also many different ways to achieve things with .NET (multiple libraries for the same purpose), which is something I have not found in other development languages like Elixir (I know, a very different one, and with a very small community).
+* I have really enjoyed coding in C#, thought. Thanks for the opportunity!
