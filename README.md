@@ -21,6 +21,11 @@ The aim of this exercise is to implement a couple of fake blogging end-points, u
     * `dotnet ef migrations add InitialMigration`
     * `dotnet ef database update`
 
+## Known/potential issues
+
+* [bug] Using a non-existent over on [GET] /post/[id] triggers an exception that is not properly captured and provokes a 500 server error. I am investigating why the exception is not managed as a NotFoundException.
+* [testing] After upgrading to .NET 8 I switched from Docker to local testing to speed up things. I am testing now that everything works fine with Docker, again.
+
 ## Implementation & general notes
 
 * Proper unit tests (with xUnit, Moq, FluentAssertions) are NOT YET implemented, because of pure time constrains. I will add sufficient unit tests in subsequent commits. I am totally conscious that unit testing and high code coverage are a MUST in software development, I just ran out of time for this first commit :-/ But I will add them later for sure!
